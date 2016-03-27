@@ -1,7 +1,7 @@
 Koudoku.setup do |config|
   config.subscriptions_owned_by = :user
-  config.stripe_publishable_key = 'pk_test_gZAdgMAcwF8zoeadqGjXahMZ'
-  config.stripe_secret_key = 'sk_test_jamL6NZ9FDQRSlHH1AUSoFTh'
+  config.stripe_publishable_key = ENV['stripe_publishable_key']
+  config.stripe_secret_key = ENV['stripe_api_key']
 
   Stripe.api_version = '2015-02-16' #Making sure the API version used is compatible.
   # config.prorate = false # Default is true, set to false to disable prorating subscriptions
