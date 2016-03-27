@@ -10,17 +10,16 @@
 
   <nav class="nav-bar">
     <% if user_signed_in? %>
-    <em><%= "Welcome #{current_user.first_name}" %></em>
-    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+      <em><%= "Welcome #{current_user.first_name}" %></em>
     <% else %>
-    <li><%= link_to 'Log In', new_user_session_path %></li>
-    <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+      <li><%= link_to 'Log In', new_user_session_path %></li>
+      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
     <% end %>
   </nav>
 
   <%= yield %>
-
-
 
 </body>
 </html>
