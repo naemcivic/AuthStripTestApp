@@ -1,14 +1,2 @@
 <h1>Hi, welcome to the main users page!!</h1>
-<nav class="nav">
-  <% if user_signed_in? %>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-    <%= link_to('All Courses', courses_path) %></br>
-    <strong><em><%= "signed in as #{current_user.first_name}" %></em></strong>
-  <% else %>
-    <%= link_to('Signin', new_user_session_path) %>
-  <% end %>
-</nav>
-
-<div id='Section-links'>
-
-</div>
+<%= link_to "See all courses here!", courses_path %>
