@@ -14,7 +14,6 @@
       <%= link_to 'Log out', main_app.destroy_user_session_path, method: :delete %>
       <em><%= "Welcome #{current_user.first_name}" %></em>
     <% else %>
-        <li><%= link_to 'Log In', main_app.new_user_session_path %></li>
         <li><%= link_to 'Sign Up', main_app.new_user_registration_path %></li>
     <% end %>
   </nav>
