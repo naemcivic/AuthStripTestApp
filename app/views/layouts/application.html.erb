@@ -10,16 +10,18 @@
 
   <nav class="nav-bar">
     <% if user_signed_in? %>
-      <%= link_to 'Home', root_path %>
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+      <%= link_to 'Home', main_app.root_path %>
+      <%= link_to 'Log out', main_app.destroy_user_session_path, method: :delete %>
       <em><%= "Welcome #{current_user.first_name}" %></em>
     <% else %>
-      <li><%= link_to 'Log In', new_user_session_path %></li>
-      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Log In', main_app.new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', main_app.new_user_registration_path %></li>
     <% end %>
   </nav>
 
   <%= yield %>
+
+  <%= yield :koudoku %>
 
 </body>
 </html>
