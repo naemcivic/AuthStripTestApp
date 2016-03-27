@@ -1,6 +1,6 @@
-<h1>Hi, welcome to the main users page!!</h1>
+<h1>Show Page of a specific course</h1>
 <nav class="nav">
-  <%= link_to "Courses", courses_path %>
+  <%= link_to "Home", root_path %>
   <% if user_signed_in? %>
   <li>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
@@ -12,3 +12,10 @@
   <% end %>
 
 </nav>
+
+
+<ul id="allcourses">
+    <div class="grey">
+      <li>Subject: <%= @course.subject %></li>
+    </div>
+</ul>

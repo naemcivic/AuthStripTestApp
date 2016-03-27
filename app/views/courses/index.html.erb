@@ -1,0 +1,22 @@
+<h1>All your courses</h1>
+<nav class="nav">
+  <%= link_to "Home", root_path %>
+  <%= link_to "Create a new course", new_course_path %>
+  <% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </li>
+  <% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>
+  </li>
+  <% end %>
+</nav>
+
+<ul id="allcourses">
+  <% @courses.each do |type| %>
+    <div class="grey">
+      <li>Subject: <%= link_to(type.subject, type) %></li>
+    </div>
+  <% end %>
+</ul>
