@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # use Devise for authentication
 gem 'devise'
+# use CanCanCan for authorization
+gem 'cancancan', '~> 1.10'
 # use Figaro to store secrets in ENV variables
 gem 'figaro'
 # Use ActiveModel has_secure_password
