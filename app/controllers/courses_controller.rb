@@ -11,14 +11,18 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
       respond_to do |format|
-        if @course.save
-          format.html {redirect_to @course, notice: "Course made"}
-          format.js {}
-        else
-          format.html {render 'new', alert: "Course was not created"}
-          format.js{}
+        if authorize! :create, @course
+         @course.save
+            format.html {redirect_to @course, notice: "Course made"}
+            format.js {}
+          else
+            format.html {render 'new', alert: "Course was not created"}
+            format.js{}
         end
       end
+        rescue CanCan::AccessDenied
+        redirect_to action: :index
+        flash[:notice] = "#{current_user.first_name} you are not authorized to complete that action"
   end
 
 
