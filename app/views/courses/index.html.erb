@@ -10,5 +10,5 @@
 <% if current_user.subscription.plan_id.present? && current_user.subscription.plan_id >= 2 %>
     <%= link_to "Create a new course", new_course_path %></br>
   <% else %>
-    <%= link_to 'Subscribe to create a course', main_app.pricing_path %>
+    <%= link_to 'Upgrade to create a course', koudoku.owner_subscriptions_path(current_user) %>
 <% end %>
