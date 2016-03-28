@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
+  # Define method for Devise to have a user timeout in a specific interval       
   def timeout_in
     if self.admin?
       10.minutes
@@ -15,6 +16,9 @@ class User < ActiveRecord::Base
     end
   end
 
-
+  # Define method to find out if member is a subscriber
+  def subscriber?
+    self.subscription.plan_id != nil && self.subscription.plan_id >= 1
+  end
 
 end

@@ -1,3 +1,25 @@
-<h1>Hi, welcome to the main users page!!</h1>
-<%= link_to "See all courses here!", courses_path %>
-<%= link_to 'See pricing for paid subscription', main_app.pricing_path %>
+  <h1>Hi, welcome to the main users page!!</h1>
+  <%= link_to "See all courses here!", courses_path %>
+  <%= link_to 'See pricing for paid subscription', main_app.pricing_path %>
+
+  <div id="all-admins", class="users-index">
+    <h1>Site Administration</h1>
+      <% @all_admins.each do |admin| %>
+        <ul>
+          <li>Name <%= admin.first_name %></li>
+          <li>Email <%= admin.email %></li>
+          <li>Member Since <%= admin.created_at %></li>
+        </ul>
+      <% end %>
+  </div>
+
+
+  <div id="all-subscribers", class="users-index">
+    <h1>All subscriber on site</h1>
+    <% @subscribers.each do |subscriber| %>
+      <ul>
+        <li>Name <%= subscriber.user.first_name%></li>
+        <li>Plan id <%= subscriber.plan_id %></li></br>
+      </ul>
+    <% end %>
+  </div>
